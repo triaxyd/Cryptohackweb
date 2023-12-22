@@ -5,7 +5,7 @@ bytes_cipher = bytes.fromhex(ciphertext)
 
 #we know that the flag has the format crypto{ so we xor the first 7 chars of the message with it
 
-# the partial key is "myXORke" so the key is myXORkey probably
+# partial key is "myXORke" so the key is myXORkey probably
 partial_key = "".join(chr(c ^ ord(f)) for c, f in zip(bytes_cipher[:7], "crypto{")) + "y"
 
 #the key has the same length as ciphertext
