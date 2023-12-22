@@ -20,7 +20,7 @@ p = 29
 
 for i in ints:
     quadraticres = []
-    for a in range(1,29):
+    for a in range(1,p):
         if (a**2) % p == i: quadraticres.append(a)
     print(quadraticres) 
 

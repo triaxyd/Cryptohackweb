@@ -1,0 +1,33 @@
+
+import numpy as np
+
+def matrix2bytes(matrix):
+    flat_list=[]
+    for row in matrix:
+        flat_list.extend(row)
+    for i in flat_list:
+        return "".join(chr(i) for i in flat_list)
+    
+
+state = [
+    [206, 243, 61, 34],
+    [171, 11, 93, 31],
+    [16, 200, 91, 108],
+    [150, 3, 194, 51],
+]
+
+round_key = [
+    [173, 129, 68, 82],
+    [223, 100, 38, 109],
+    [32, 189, 53, 8],
+    [253, 48, 187, 78],
+]
+
+
+def add_round_key(s, k):
+    return np.bitwise_xor(state,round_key)
+
+
+ark = add_round_key(state, round_key)
+print(matrix2bytes(ark))
+
