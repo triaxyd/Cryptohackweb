@@ -27,17 +27,18 @@ def decode_things(encoded_string,encoded_type):
         decoded = bytes(long_to_bytes(int(encoded_string),16)).decode()
     elif encoded_type == "utf-8":
         decoded = ''.join(chr(c) for c in encoded_string)
-
+    return decoded
 
 for i in range (100):
     received = json_recv()
-    print('Type of received message:',received["type"])
+    #print('Type of received message:',received["type"])
     encoded_type = received['type']
-    print("Received encoded value: ",received["encoded"])
+    #print("Received encoded value: ",received["encoded"])
     encoded_string = received["encoded"]
 
     to_send = {
         "decoded": decode_things(encoded_string,encoded_type)
     }
     json_send(to_send)
+    
 print(json_recv())
