@@ -8,8 +8,8 @@ powers_to_test = list(int(phip/pf) for pf in prime_factors)
 # test for range 1-100 to see
 for i in range(1, 101):
     is_primitive = True
-    for pf in powers_to_test:
-        if pow(i, pf, p) == 1:
+    for pt in powers_to_test:
+        if pow(i, pt, p) == 1:
             is_primitive = False
             break 
     if is_primitive:
